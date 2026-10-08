@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SENA AA2-EV03 | Plataforma de Analítica de Datos & IA Generativa</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen">
+
+    <!-- Navbar Superior -->
+    <header class="bg-gradient-to-r from-slate-900 via-teal-950 to-slate-900 text-white shadow-xl sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-xl bg-white p-1.5 flex items-center justify-center shadow-md">
+                    <img src="web/sena_logo_verde.svg" alt="Logo SENA" class="w-full h-full object-contain">
+                </div>
+                <div>
+                    <h1 class="text-xl font-bold tracking-tight text-white flex items-center gap-2">
+                        Analítica de Datos & IA Generativa
+                        <span class="text-xs bg-teal-500/30 text-teal-300 px-2 py-0.5 rounded-full border border-teal-500/40 font-mono">SENA AA2-EV03</span>
+                    </h1>
+                    <p class="text-xs text-slate-300">Programa: Aplicación de la Inteligencia Artificial en la Integración de Datos | RA: 220501115-02</p>
+                </div>
+            </div>
+            <div class="flex items-center space-x-2 text-xs">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 font-medium">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Pipeline Ejecutado 100%
+                </span>
+                <span class="px-3 py-1 rounded-full bg-slate-800 text-slate-300 border border-slate-700">
+                    Copiloto: Antigravity
+                </span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenedor Principal -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+
+        <!-- Banner de Bienvenida y KPIs Rápidos -->
+        <section class="grid grid-cols-1 md:grid-cols-4 gap-4">
+            <div class="glass-card rounded-2xl p-5 shadow-sm border-l-4 border-teal-500 flex items-center space-x-4">
+                <div class="p-3 bg-teal-50 text-teal-600 rounded-xl">
+                    <i data-lucide="users" class="w-6 h-6"></i>
+                </div>
+                <div>
+                    <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Total Pasajeros</p>
+                    <p class="text-2xl font-bold text-slate-900">891</p>
+                    <p class="text-[11px] text-teal-600 font-medium">Muestra 100% auditada</p>
+                </div>
+            </div>
+
+            <div class="glass-card rounded-2xl p-5 shadow-sm border-l-4 border-blue-500 flex items-center space-x-4">
+                <div class="p-3 bg-blue-50 text-blue-600 rounded-xl">
+                    <i data-lucide="activity" class="w-6 h-6"></i>
+                </div>
+                <div>
+                    <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Supervivencia Global</p>
+                    <p class="text-2xl font-bold text-slate-900">38.4%</p>
+                    <p class="text-[11px] text-blue-600 font-medium">342 personas rescatadas</p>
+                </div>
+            </div>
+
+            <div class="glass-card rounded-2xl p-5 shadow-sm border-l-4 border-emerald-500 flex items-center space-x-4">
+                <div class="p-3 bg-emerald-50 text-emerald-600 rounded-xl">
+                    <i data-lucide="shield-check" class="w-6 h-6"></i>
+                </div>
+                <div>
+                    <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Mujeres 1ra Clase</p>
+                    <p class="text-2xl font-bold text-emerald-600">96.81%</p>
+                    <p class="text-[11px] text-emerald-700 font-medium">91 de 94 sobrevivieron</p>
+                </div>
+            </div>
+
+            <div class="glass-card rounded-2xl p-5 shadow-sm border-l-4 border-rose-500 flex items-center space-x-4">
+                <div class="p-3 bg-rose-50 text-rose-600 rounded-xl">
+                    <i data-lucide="alert-triangle" class="w-6 h-6"></i>
+                </div>
+                <div>
+                    <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Hombres 3ra Clase</p>
+                    <p class="text-2xl font-bold text-rose-600">13.54%</p>
+                    <p class="text-[11px] text-rose-700 font-medium">47 de 347 sobrevivieron</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pestañas de Navegación -->
+        <div class="flex border-b border-slate-200 space-x-2 overflow-x-auto pb-2" id="tabList">
+            <button onclick="changeTab('tab-dash')" id="btn-tab-dash" class="tab-btn px-4 py-2.5 rounded-lg font-medium text-sm transition-all flex items-center gap-2 bg-teal-600 text-white shadow-sm">
+                <i data-lucide="layout-dashboard" class="w-4 h-4"></i> Dashboard Consolidado
+            </button>
+            <button onclick="changeTab('tab-eda')" id="btn-tab-eda" class="tab-btn px-4 py-2.5 rounded-lg font-medium text-sm transition-all flex items-center gap-2 text-slate-600 hover:bg-slate-200">
+                <i data-lucide="bar-chart-2" class="w-4 h-4"></i> Análisis Exploratorio (EDA)
+            </button>
+            <button onclick="changeTab('tab-ml')" id="btn-tab-ml" class="tab-btn px-4 py-2.5 rounded-lg font-medium text-sm transition-all flex items-center gap-2 text-slate-600 hover:bg-slate-200">
+                <i data-lucide="cpu" class="w-4 h-4"></i> Modelado K-Means
+            </button>
+            <button onclick="changeTab('tab-ia')" id="btn-tab-ia" class="tab-btn px-4 py-2.5 rounded-lg font-medium text-sm transition-all flex items-center gap-2 text-slate-600 hover:bg-slate-200">
+                <i data-lucide="sparkles" class="w-4 h-4"></i> IA Generativa (LLM)
+            </button>
+            <button onclick="changeTab('tab-docs')" id="btn-tab-docs" class="tab-btn px-4 py-2.5 rounded-lg font-medium text-sm transition-all flex items-center gap-2 text-slate-600 hover:bg-slate-200">
+                <i data-lucide="file-text" class="w-4 h-4"></i> Documentación & Criterios
+            </button>
+        </div>
+
+        <!-- ================= TAB 1: DASHBOARD CONSOLIDADO ================= -->
+        <section id="tab-dash" class="tab-content space-y-6">
+            <div class="glass-card rounded-2xl p-6 shadow-sm border border-slate-200">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6">
+                    <div>
+                        <h2 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+                            <i data-lucide="pie-chart" class="w-5 h-5 text-teal-600"></i> Panel Visual Consolidado (2x2)
+                        </h2>
+                        <p class="text-sm text-slate-500">Integración de densidades biológicas, factores de estratificación socioeconómica y resultados de clustering.</p>
+                    </div>
+                    <span class="text-xs bg-slate-100 text-slate-600 px-3 py-1.5 rounded-lg border border-slate-200 font-mono">
+                        outputs/figuras/dashboard_consolidado.png
+                    </span>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+                    <div class="lg:col-span-8 bg-slate-100 p-2 rounded-xl border border-slate-200 overflow-hidden shadow-inner cursor-pointer" onclick="openModal('outputs/figuras/dashboard_consolidado.png')">
+                        <img src="outputs/figuras/dashboard_consolidado.png" alt="Dashboard Consolidado" class="w-full rounded-lg hover:scale-[1.01] transition-transform duration-200 shadow-sm">
+                        <p class="text-center text-xs text-slate-400 mt-2 font-mono">🔍 Haz clic en la imagen para ampliar</p>
+                    </div>
+                    <div class="lg:col-span-4 space-y-4">
+                        <div class="bg-teal-50/70 border border-teal-200 p-4 rounded-xl">
+                            <h3 class="font-bold text-teal-900 text-sm flex items-center gap-2">
+                                <i data-lucide="check-circle" class="w-4 h-4 text-teal-600"></i> 1. Densidad Etaria
+                            </h3>
+                            <p class="text-xs text-slate-600 mt-1">Pico evidente de supervivencia en niños menores a 10 años, cumpliendo la máxima de rescate prioritario.</p>
+                        </div>
+                        <div class="bg-blue-50/70 border border-blue-200 p-4 rounded-xl">
+                            <h3 class="font-bold text-blue-900 text-sm flex items-center gap-2">
+                                <i data-lucide="check-circle" class="w-4 h-4 text-blue-600"></i> 2. Disparidad de Clase y Sexo
+                            </h3>
+                            <p class="text-xs text-slate-600 mt-1">Supervivencia femenina superior al 90% en 1ra y 2da clase, contrastando con el 13.5% en hombres de 3ra.</p>
+                        </div>
+                        <div class="bg-emerald-50/70 border border-emerald-200 p-4 rounded-xl">
+                            <h3 class="font-bold text-emerald-900 text-sm flex items-center gap-2">
+                                <i data-lucide="check-circle" class="w-4 h-4 text-emerald-600"></i> 3 y 4. Rendimiento por Cluster
+                            </h3>
+                            <p class="text-xs text-slate-600 mt-1">El cluster premium (Cluster 2) alcanza el 73.0% de supervivencia, confirmando la ventaja económica en la emergencia.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= TAB 2: ANÁLISIS EXPLORATORIO (EDA) ================= -->
+        <section id="tab-eda" class="tab-content hidden space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+                <!-- Gráfico 1: Heatmap -->
+                <div class="glass-card rounded-2xl p-5 shadow-sm border border-slate-200 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="font-bold text-slate-900 text-sm flex items-center gap-2">
+                                <i data-lucide="flame" class="w-4 h-4 text-rose-500"></i> Matriz de Correlación
+                            </h3>
+                            <span class="text-[10px] bg-slate-100 px-2 py-0.5 rounded text-slate-500 font-mono">Pearson</span>
+                        </div>
+                        <div class="bg-slate-100 p-2 rounded-xl border border-slate-200 mb-4 cursor-pointer" onclick="openModal('outputs/figuras/heatmap_correlaciones.png')">
+                            <img src="outputs/figuras/heatmap_correlaciones.png" alt="Heatmap" class="w-full rounded-lg shadow-sm">
+                        </div>
+                    </div>
+                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-200 text-xs text-slate-600 space-y-1">
+                        <p><strong>• Sex vs Survived (+0.54):</strong> Fuerte asociación positiva lineal con el género femenino.</p>
+                        <p><strong>• Pclass vs Survived (-0.34):</strong> A mayor número de clase, menor probabilidad de salvarse.</p>
+                    </div>
+                </div>
+
+                <!-- Gráfico 2: Boxplot -->
+                <div class="glass-card rounded-2xl p-5 shadow-sm border border-slate-200 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="font-bold text-slate-900 text-sm flex items-center gap-2">
+                                <i data-lucide="package" class="w-4 h-4 text-amber-500"></i> Tarifas por Clase
+                            </h3>
+                            <span class="text-[10px] bg-slate-100 px-2 py-0.5 rounded text-slate-500 font-mono">Boxplot</span>
+                        </div>
+                        <div class="bg-slate-100 p-2 rounded-xl border border-slate-200 mb-4 cursor-pointer" onclick="openModal('outputs/figuras/boxplot_fare_pclass.png')">
+                            <img src="outputs/figuras/boxplot_fare_pclass.png" alt="Boxplot" class="w-full rounded-lg shadow-sm">
+                        </div>
+                    </div>
+                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-200 text-xs text-slate-600 space-y-1">
+                        <p><strong>• Outliers en 1ra Clase:</strong> Tarifas atípicas superiores a £200 y hasta £512.</p>
+                        <p><strong>• Justificación Técnica:</strong> Exige StandardScaler obligatorio para no sesgar distancias euclidianas.</p>
+                    </div>
+                </div>
+
+                <!-- Gráfico 3: Countplot -->
+                <div class="glass-card rounded-2xl p-5 shadow-sm border border-slate-200 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="font-bold text-slate-900 text-sm flex items-center gap-2">
+                                <i data-lucide="users" class="w-4 h-4 text-emerald-500"></i> Supervivencia por Género
+                            </h3>
+                            <span class="text-[10px] bg-slate-100 px-2 py-0.5 rounded text-slate-500 font-mono">Barras</span>
+                        </div>
+                        <div class="bg-slate-100 p-2 rounded-xl border border-slate-200 mb-4 cursor-pointer" onclick="openModal('outputs/figuras/countplot_supervivencia.png')">
+                            <img src="outputs/figuras/countplot_supervivencia.png" alt="Countplot" class="w-full rounded-lg shadow-sm">
+                        </div>
+                    </div>
+                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-200 text-xs text-slate-600 space-y-1">
+                        <p><strong>• Tasa Femenina:</strong> 74.2% de mujeres a bordo fueron rescatadas.</p>
+                        <p><strong>• Tasa Masculina:</strong> Únicamente el 18.9% de hombres sobrevivieron.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ================= TAB 3: MACHINE LEARNING (K-MEANS) ================= -->
+        <section id="tab-ml" class="tab-content hidden space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                <!-- Método del Codo -->
+                <div class="glass-card rounded-2xl p-6 shadow-sm border border-slate-200">
+                    <h3 class="text-base font-bold text-slate-900 mb-2 flex items-center gap-2">
+                        <i data-lucide="trending-down" class="w-5 h-5 text-indigo-600"></i> 1. Método del Codo (Selección de k)
+                    </h3>
+                    <p class="text-xs text-slate-500 mb-4">Evaluación de la suma de cuadrados intra-cluster (Inercia WCSS) entre k=2 y k=10.</p>
+                    <div class="bg-slate-100 p-2 rounded-xl border border-slate-200 mb-4 cursor-pointer" onclick="openModal('outputs/figuras/metodo_codo.png')">
+                        <img src="outputs/figuras/metodo_codo.png" alt="Método del Codo" class="w-full rounded-lg shadow-sm">
+                    </div>
+                    <div class="p-3 bg-indigo-50 border border-indigo-200 rounded-xl text-xs text-indigo-950">
+                        <strong>📌 Hallazgo Matemático:</strong> El punto de inflexión más claro de la curva se sitúa en <strong>k=3</strong>. A partir de allí, agregar más clusters no reduce la inercia lo suficiente como para justificar mayor complejidad.
+                    </div>
+                </div>
+
+                <!-- Scatter de Clusters -->
+                <div class="glass-card rounded-2xl p-6 shadow-sm border border-slate-200">
+                    <h3 class="text-base font-bold text-slate-900 mb-2 flex items-center gap-2">
+                        <i data-lucide="scatter-chart" class="w-5 h-5 text-teal-600"></i> 2. Dispersión Age vs Fare (K-Means)
+                    </h3>
+                    <p class="text-xs text-slate-500 mb-4">Proyección bidimensional de los 3 segmentos descubiertos por el algoritmo.</p>
+                    <div class="bg-slate-100 p-2 rounded-xl border border-slate-200 mb-4 cursor-pointer" onclick="openModal('outputs/figuras/scatter_clusters.png')">
+                        <img src="outputs/figuras/scatter_clusters.png" alt="Scatter Clusters" class="w-full rounded-lg shadow-sm">
+                    </div>
+                    <div class="p-3 bg-teal-50 border border-teal-200 rounded-xl text-xs text-teal-950">
+                        <strong>📌 Segmentación Nítida:</strong> Separación perfecta entre la población joven-económica (Cluster 0), los adultos medios (Cluster 1) y los pasajes de alta gama (Cluster 2).
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Tabla de Resumen Estadístico de Clusters -->
+            <div class="glass-card rounded-2xl p-6 shadow-sm border border-slate-200">
+                <h3 class="text-base font-bold text-slate-900 mb-4 flex items-center gap-2">
+                    <i data-lucide="table" class="w-5 h-5 text-teal-600"></i> Resumen Estadístico por Cluster (outputs/reportes/resumen_clusters.csv)
+                </h3>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-xs text-left border-collapse">
+                        <thead>
+                            <tr class="bg-slate-100 border-b border-slate-200 text-slate-700 uppercase font-semibold">
+                                <th class="p-3">Cluster ID</th>
+                                <th class="p-3">Pasajeros (n)</th>
+                                <th class="p-3">% del Barco</th>
+                                <th class="p-3">Edad Media</th>
+                                <th class="p-3">Tarifa Media</th>
+                                <th class="p-3">Tarifa Mediana</th>
+                                <th class="p-3">Tasa Supervivencia</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100">
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-3 font-bold text-teal-600 flex items-center gap-2">
+                                    <span class="w-2.5 h-2.5 rounded-full bg-teal-500"></span> Cluster 0
+                                </td>
+                                <td class="p-3 font-semibold">587</td>
+                                <td class="p-3">65.9%</td>
+                                <td class="p-3">21.9 años</td>
+                                <td class="p-3">£19.35</td>
+                                <td class="p-3">£10.50</td>
+                                <td class="p-3 font-bold text-rose-600">36.1%</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-3 font-bold text-amber-600 flex items-center gap-2">
+                                    <span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span> Cluster 1
+                                </td>
+                                <td class="p-3 font-semibold">267</td>
+                                <td class="p-3">30.0%</td>
+                                <td class="p-3">44.4 años</td>
+                                <td class="p-3">£34.64</td>
+                                <td class="p-3">£26.39</td>
+                                <td class="p-3 font-bold text-amber-600">40.1%</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-3 font-bold text-blue-600 flex items-center gap-2">
+                                    <span class="w-2.5 h-2.5 rounded-full bg-blue-500"></span> Cluster 2
+                                </td>
+                                <td class="p-3 font-semibold">37</td>
+                                <td class="p-3">4.1%</td>
+                                <td class="p-3">32.6 años</td>
+                                <td class="p-3">£218.52</td>
+                                <td class="p-3">£211.34</td>
+                                <td class="p-3 font-bold text-emerald-600">73.0%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= TAB 4: IA GENERATIVA (LLM) ================= -->
+        <section id="tab-ia" class="tab-content hidden space-y-6">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+                <!-- Columna Izquierda: Informe Textual -->
+                <div class="lg:col-span-7 glass-card rounded-2xl p-6 shadow-sm border border-slate-200">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-base font-bold text-slate-900 flex items-center gap-2">
+                            <i data-lucide="sparkles" class="w-5 h-5 text-amber-500"></i> Informe Generativo de Negocio
+                        </h3>
+                        <span class="text-xs bg-amber-50 text-amber-700 px-3 py-1 rounded-full border border-amber-200 font-mono">
+                            OpenAI GPT-4o-mini / Fallback
+                        </span>
+                    </div>
+
+                    <div class="bg-slate-900 text-slate-100 p-4 rounded-xl text-xs font-mono leading-relaxed overflow-x-auto max-h-[480px] shadow-inner space-y-3">
+                        <p class="text-teal-400 font-bold">=== INFORME ANALÍTICO DE NEGOCIO: SEGMENTACIÓN DE PASAJEROS (TITANIC) ===</p>
+                        <p class="text-slate-400">Generado de forma autónoma mediante pipeline de datos en Python + IA Generativa.</p>
+                        
+                        <div class="border-t border-slate-700 pt-2 space-y-2">
+                            <p class="text-amber-300 font-semibold">1. CLUSTER 0: "Pasajeros Económicos y Población Joven/Adulto Joven"</p>
+                            <p class="text-slate-300 pl-3">• Perfil: Edad media ~22 años, boletos mínimos (£10 - £19).</p>
+                            <p class="text-slate-300 pl-3">• Hallazgo: Mayor volumen poblacional (66%). Tasa de supervivencia crítica de apenas 36%, evidenciando dificultades de evacuación desde cubiertas inferiores.</p>
+                        </div>
+
+                        <div class="border-t border-slate-700 pt-2 space-y-2">
+                            <p class="text-emerald-300 font-semibold">2. CLUSTER 1: "Adultos Maduros y Clase Media"</p>
+                            <p class="text-slate-300 pl-3">• Perfil: Edad promedio de 44 años con tarifas medias (£26 - £34).</p>
+                            <p class="text-slate-300 pl-3">• Hallazgo: Supervivencia moderada (40%). Factores etarios y ubicación intermedia en el navío influyeron en su respuesta.</p>
+                        </div>
+
+                        <div class="border-t border-slate-700 pt-2 space-y-2">
+                            <p class="text-blue-300 font-semibold">3. CLUSTER 2: "Élite y Pasajeros Premium / Suites"</p>
+                            <p class="text-slate-300 pl-3">• Perfil: Pasajeros de alta capacidad financiera con tarifas superiores a £200.</p>
+                            <p class="text-slate-300 pl-3">• Hallazgo: Tasa de supervivencia sobresaliente del 73.0%. La cercanía física a los botes y el protocolo preferencial maximizaron su rescate.</p>
+                        </div>
+
+                        <div class="border-t border-slate-700 pt-2 text-teal-300">
+                            <p class="font-bold">RECOMENDACIÓN METODOLÓGICA:</p>
+                            <p class="text-slate-300">La integración de K-Means y LLMs permite a las organizaciones transformar tablas de agregación numéricas en narrativas estratégicas para la toma de decisiones directivas.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha: Tarjetas de Perfil -->
+                <div class="lg:col-span-5 space-y-4">
+                    <div class="glass-card rounded-2xl p-5 border-l-4 border-teal-500 shadow-sm">
+                        <span class="text-xs uppercase tracking-wider font-bold text-teal-600">Segmento Popular (Cluster 0)</span>
+                        <h4 class="text-base font-bold text-slate-900 mt-1">Jóvenes y Tercera Clase</h4>
+                        <div class="mt-2 text-xs text-slate-600 space-y-1">
+                            <p><strong>Volumen:</strong> 587 personas (65.9%)</p>
+                            <p><strong>Tarifa Mediana:</strong> £10.50</p>
+                            <p><strong>Supervivencia:</strong> <span class="text-rose-600 font-bold">36.1%</span></p>
+                            <p class="text-[11px] text-slate-500 mt-1">Alta sensibilidad a precio, acceso restringido a botes.</p>
+                        </div>
+                    </div>
+
+                    <div class="glass-card rounded-2xl p-5 border-l-4 border-amber-500 shadow-sm">
+                        <span class="text-xs uppercase tracking-wider font-bold text-amber-600">Segmento Medio (Cluster 1)</span>
+                        <h4 class="text-base font-bold text-slate-900 mt-1">Adultos y Clase Media</h4>
+                        <div class="mt-2 text-xs text-slate-600 space-y-1">
+                            <p><strong>Volumen:</strong> 267 personas (30.0%)</p>
+                            <p><strong>Tarifa Mediana:</strong> £26.39</p>
+                            <p><strong>Supervivencia:</strong> <span class="text-amber-600 font-bold">40.1%</span></p>
+                            <p class="text-[11px] text-slate-500 mt-1">Edad madura (media 44 años), capacidad media.</p>
+                        </div>
+                    </div>
+
+                    <div class="glass-card rounded-2xl p-5 border-l-4 border-blue-500 shadow-sm">
+                        <span class="text-xs uppercase tracking-wider font-bold text-blue-600">Segmento Élite (Cluster 2)</span>
+                        <h4 class="text-base font-bold text-slate-900 mt-1">Alta Gama y Primera Clase</h4>
+                        <div class="mt-2 text-xs text-slate-600 space-y-1">
+                            <p><strong>Volumen:</strong> 37 personas (4.1%)</p>
+                            <p><strong>Tarifa Mediana:</strong> £211.34</p>
+                            <p><strong>Supervivencia:</strong> <span class="text-emerald-600 font-bold">73.0%</span></p>
+                            <p class="text-[11px] text-slate-500 mt-1">Acceso prioritario y ubicación en cubiertas superiores.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ================= TAB 5: DOCUMENTACIÓN & CRITERIOS ================= -->
+        <section id="tab-docs" class="tab-content hidden space-y-6">
+            <div class="glass-card rounded-2xl p-6 shadow-sm border border-slate-200">
+                <h3 class="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
+                    <i data-lucide="check-square" class="w-5 h-5 text-teal-600"></i> Matriz de Cumplimiento de Criterios SENA (AA2-EV03)
+                </h3>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-xs text-left border-collapse">
+                        <thead>
+                            <tr class="bg-slate-100 border-b border-slate-200 text-slate-700 font-semibold uppercase">
+                                <th class="p-3">#</th>
+                                <th class="p-3">Criterio Exigido por el SENA</th>
+                                <th class="p-3">Implementación Técnica en el Proyecto</th>
+                                <th class="p-3">Minuto en Video</th>
+                                <th class="p-3">Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100">
+                            <tr>
+                                <td class="p-3 font-bold">1</td>
+                                <td class="p-3 font-medium text-slate-900">Paso a paso de configuración inicial</td>
+                                <td class="p-3 text-slate-600">Entorno virtual `venv`, `requirements.txt` con versiones fijas y VS Code.</td>
+                                <td class="p-3 font-mono">01:45 - 02:45</td>
+                                <td class="p-3"><span class="px-2 py-0.5 bg-emerald-100 text-emerald-700 rounded font-semibold">SÍ CUMPLE</span></td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-bold">2</td>
+                                <td class="p-3 font-medium text-slate-900">Justificación de la herramienta</td>
+                                <td class="p-3 text-slate-600">Comparativa técnica de Python + Antigravity sobre Power BI / Tableau.</td>
+                                <td class="p-3 font-mono">00:45 - 01:45</td>
+                                <td class="p-3"><span class="px-2 py-0.5 bg-emerald-100 text-emerald-700 rounded font-semibold">SÍ CUMPLE</span></td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-bold">3</td>
+                                <td class="p-3 font-medium text-slate-900">Importación y limpieza</td>
+                                <td class="p-3 text-slate-600">Carga con pandas e imputación condicional de mediana y moda estadística.</td>
+                                <td class="p-3 font-mono">02:45 - 04:00</td>
+                                <td class="p-3"><span class="px-2 py-0.5 bg-emerald-100 text-emerald-700 rounded font-semibold">SÍ CUMPLE</span></td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-bold">4</td>
+                                <td class="p-3 font-medium text-slate-900">Filtros y segmentaciones</td>
+                                <td class="p-3 text-slate-600">Segmentación de mujeres 1ra clase (96.8%) vs hombres 3ra clase (13.5%).</td>
+                                <td class="p-3 font-mono">04:00 - 05:00</td>
+                                <td class="p-3"><span class="px-2 py-0.5 bg-emerald-100 text-emerald-700 rounded font-semibold">SÍ CUMPLE</span></td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-bold">5</td>
+                                <td class="p-3 font-medium text-slate-900">Algoritmo básico de analítica</td>
+                                <td class="p-3 text-slate-600">StandardScaler + Método del codo + K-Means clustering (k=3).</td>
+                                <td class="p-3 font-mono">05:00 - 06:15</td>
+                                <td class="p-3"><span class="px-2 py-0.5 bg-emerald-100 text-emerald-700 rounded font-semibold">SÍ CUMPLE</span></td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-bold">6</td>
+                                <td class="p-3 font-medium text-slate-900">Narración clara y técnica</td>
+                                <td class="p-3 text-slate-600">Guion técnico minuciosamente cronometrado en `docs/guion_video.md`.</td>
+                                <td class="p-3 font-mono">Todo el video</td>
+                                <td class="p-3"><span class="px-2 py-0.5 bg-emerald-100 text-emerald-700 rounded font-semibold">SÍ CUMPLE</span></td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-bold">7</td>
+                                <td class="p-3 font-medium text-slate-900">PDF con datos y enlace</td>
+                                <td class="p-3 text-slate-600">Documento maestro exhaustivo en `docs/AA2-EV03_Documento_Maestro.md`.</td>
+                                <td class="p-3 font-mono">Entrega PDF</td>
+                                <td class="p-3"><span class="px-2 py-0.5 bg-emerald-100 text-emerald-700 rounded font-semibold">SÍ CUMPLE</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Modal para Zoom de Imágenes -->
+    <div id="imageModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4" onclick="closeModal()">
+        <div class="relative max-w-5xl w-full bg-white rounded-2xl p-3 shadow-2xl" onclick="event.stopPropagation()">
+            <button onclick="closeModal()" class="absolute top-4 right-4 bg-slate-800 text-white rounded-full p-2 hover:bg-slate-700 transition">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+            <img id="modalImg" src="" alt="Ampliación" class="w-full rounded-xl max-h-[85vh] object-contain">
+        </div>
+    </div>
+
+    <!-- Script de Interactividad -->
+    <script>
+        lucide.createIcons();
+
+        function changeTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('bg-teal-600', 'text-white', 'shadow-sm');
+                btn.classList.add('text-slate-600');
+            });
+
+            document.getElementById(tabId).classList.remove('hidden');
+            const activeBtn = document.getElementById('btn-' + tabId);
+            activeBtn.classList.remove('text-slate-600');
+            activeBtn.classList.add('bg-teal-600', 'text-white', 'shadow-sm');
+            lucide.createIcons();
+        }
+
+        function openModal(imgSrc) {
+            document.getElementById('modalImg').src = imgSrc;
+            document.getElementById('imageModal').classList.remove('hidden');
+            lucide.createIcons();
+        }
+
+        function closeModal() {
+            document.getElementById('imageModal').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
+
