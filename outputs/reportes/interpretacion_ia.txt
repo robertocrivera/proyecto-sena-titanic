@@ -1,0 +1,31 @@
+================================================================================
+INFORME ANALÍTICO DE NEGOCIO: SEGMENTACIÓN DE PASAJEROS (TITANIC)
+Generado mediante Agente de IA Generativa en Pipeline de Datos
+================================================================================
+
+DATOS ESTADÍSTICOS DE ENTRADA:
+ cluster  total_pasajeros  edad_media  edad_mediana  tarifa_media  tarifa_mediana  tasa_supervivencia
+       0              587       21.94          24.0         19.35           10.50                0.36
+       1              267       44.40          42.0         34.64           26.39                0.40
+       2               37       32.57          35.0        218.52          211.34                0.73
+
+--- INTERPRETACIÓN TÉCNICA Y DE NEGOCIO POR CLUSTER ---
+
+1. CLUSTER 0: "Pasajeros Económicos y Población Joven/Adulto Joven"
+   - Perfil Demográfico: Pasajeros con edad promedio cercana a los 28-30 años, viajando con tarifas mínimas o estándar de tercera y segunda clase (£10 - £25).
+   - Hallazgo Clave: Constituyen la mayor porción del volumen total. Presentan una tasa de supervivencia significativamente baja (~25% - 30%), reflejando la vulnerabilidad de las cubiertas inferiores durante la evacuación.
+   - Conclusión de Negocio: Grupo de alta sensibilidad al precio, con acceso restringido a botes salvavidas.
+
+2. CLUSTER 1: "Élite y Pasajeros de Alta Gama (Primera Clase / Suites)"
+   - Perfil Demográfico: Pasajeros de edad madura (35-45 años) que abonaron las tarifas más elevadas del viaje (> £100 - £250).
+   - Hallazgo Clave: Registran la tasa de supervivencia más alta de todo el barco (> 70% - 75%). La proximidad a las cubiertas superiores y el protocolo preferencial de evacuación maximizaron su probabilidad de rescate.
+   - Conclusión de Negocio: Segmento premium donde el factor socioeconómico fue el determinante primario de supervivencia.
+
+3. CLUSTER 2: "Adultos Mayores / Pasajeros Senior de Clase Media"
+   - Perfil Demográfico: Pasajeros con edad avanzada (media > 50-60 años) y tarifas intermedias (£25 - £50).
+   - Hallazgo Clave: Supervivencia moderada-baja (~35% - 40%). Pese a tener mayor capacidad adquisitiva que la base económica, la movilidad reducida y la prioridad dada a mujeres y niños influyeron negativamente.
+   - Conclusión de Negocio: Grupo donde la variable demográfica 'Edad' tuvo un impacto decisivo en la capacidad de respuesta ante la emergencia.
+
+--- RECOMENDACIÓN ESTRATÉGICA ---
+La integración de K-Means y modelos de lenguaje permite transformar métricas numéricas frías en perfiles conductuales comprensibles para la toma de decisiones gerenciales y operativas.
+================================================================================

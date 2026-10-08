@@ -1,0 +1,4 @@
+cluster,total_pasajeros,edad_media,edad_mediana,tarifa_media,tarifa_mediana,tasa_supervivencia
+0,587,21.94,24.0,19.35,10.5,0.36
+1,267,44.4,42.0,34.64,26.39,0.4
+2,37,32.57,35.0,218.52,211.34,0.73

@@ -1,0 +1,19 @@
+# Manipulación de datos
+pandas>=2.2.0
+numpy>=1.26.0
+
+# Visualización
+matplotlib>=3.8.0
+seaborn>=0.13.0
+plotly>=5.22.0
+
+# Machine Learning & Estadística
+scikit-learn>=1.4.0
+scipy>=1.13.0
+
+# IA Generativa y APIs
+openai>=1.30.0
+
+# Entorno y Utilidades
+python-dotenv>=1.0.0
+
