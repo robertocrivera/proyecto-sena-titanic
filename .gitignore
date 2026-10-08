@@ -30,3 +30,7 @@ Thumbs.db
 Desktop.ini
 .DS_Store
 
+# Documentos locales de uso interno / preparación (no públicos en GitHub)
+docs/INFORME_FINAL_PROYECTO_SENA.md
+docs/guion_video.md
+
